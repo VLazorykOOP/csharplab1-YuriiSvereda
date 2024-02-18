@@ -1,14 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
-
+﻿// See https://aka.ms/new-console-template for more 
  static void task1()
 {
     Console.WriteLine("Task1 !");
-    Console.Write("s= ");
-    string? str = Console.ReadLine();
-    float s = 0; 
-    if (str != null) s = float.Parse(str);
-    double p = 4 * Math.Sqrt(s);
-    Console.WriteLine("p=" + p);
+    Console.Write("s = ");
+    double s;
+    if(double.TryParse(Console.ReadLine(), out s))
+    {
+        Console.WriteLine("r = {0}", Math.Sqrt(s / Math.PI));
+    }
+    else
+    {
+        Console.WriteLine("invalid input:(");
+    }
 
 }
 Console.WriteLine("Lab 1 !");
