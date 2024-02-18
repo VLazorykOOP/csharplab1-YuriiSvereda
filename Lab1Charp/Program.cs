@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more 
 
 //1.14. радіус кола, площа круга якої дорівнює s
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 static void Task1()
 {
     Console.WriteLine("Task1 !");
@@ -87,6 +89,58 @@ static void Task3()
     }
 }
 
+//4.14. Дано рік. Вивести на екран назву тварини, що символізує заданий рік за східним календарем.
+static void Task4()
+{
+    Console.WriteLine("Task4!");
+    Console.WriteLine("Enter year:");
+    int year;
+    if (int.TryParse(Console.ReadLine(), out year))
+    {
+        Console.WriteLine("The name of an animal that symbolizes a given year in the Eastern calendar:");
+        int sequenceYearNumber = year % 12;
+        switch (sequenceYearNumber)
+        {
+            case 0:
+                Console.WriteLine("Monkey");
+                break;
+            case 1:
+                Console.WriteLine("Rooster");
+                break;
+            case 2:
+                Console.WriteLine("Dog");
+                break;
+            case 3:
+                Console.WriteLine("Pig");
+                break;
+            case 4:
+                Console.WriteLine("Rat");
+                break;
+            case 5:
+                Console.WriteLine("Ox");
+                break;
+            case 6:
+                Console.WriteLine("Tiger");
+                break;
+            case 7:
+                Console.WriteLine("Hare");
+                break;
+            case 8:
+                Console.WriteLine("Dragon");
+                break;
+            case 9:
+                Console.WriteLine("Snake");
+                break;
+            case 10:
+                Console.WriteLine("Horse");
+                break;
+            case 11:
+                Console.WriteLine("Ram");
+                break;
+        }
+    }
+}
+
 Console.WriteLine("Lab 1!");
-Task3();
+Task4();
 // continue ...
