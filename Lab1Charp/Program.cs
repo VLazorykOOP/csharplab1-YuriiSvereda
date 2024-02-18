@@ -1,8 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more 
 
 //1.14. радіус кола, площа круга якої дорівнює s
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 static void Task1()
 {
     Console.WriteLine("Task1 !");
@@ -19,11 +17,12 @@ static void Task1()
 
 }
 
+
 //2.14. яка з цифр тризначного числа більше: перша чи друга;
 static void Task2()
 {
     Console.WriteLine("Task2!");
-    Console.WriteLine("Enter c number");
+    Console.WriteLine("Enter 3-values number");
     short num;
     if (short.TryParse(Console.ReadLine(), out num))
     {
@@ -55,6 +54,7 @@ static void Task2()
     }
 
 }
+
 
 //потрапити крапкою в трикутник ([0;0],[-23;0][-23;-23])
 static void Task3()
@@ -88,6 +88,7 @@ static void Task3()
         Console.WriteLine("invalid format of input");
     }
 }
+
 
 //4.14. Дано рік. Вивести на екран назву тварини, що символізує заданий рік за східним календарем.
 static void Task4()
@@ -145,6 +146,7 @@ static void Task4()
     }
 }
 
+
 //5.14. Реалізувати функцію піднесення у квадрат різниці двох дійсних чисел
 static void Task5()
 {
@@ -154,14 +156,112 @@ static void Task5()
     Console.WriteLine("enter second number:");
     double secondNum = double.Parse(Console.ReadLine());
     Console.WriteLine("result of function: {0}", SquaringDifferenceOfTwoRealNumbers(firstNum, secondNum));
-
-
 }
 static double SquaringDifferenceOfTwoRealNumbers(double firstNum, double secondNum)
 {
     return Math.Pow(firstNum - secondNum, 2);
 }
 
-Console.WriteLine("Lab 1!");
-Task5();
+
+//solve the equation by the formula
+static void Task6()
+{
+    Console.WriteLine("Task6!");
+    Console.WriteLine("enter a:");
+    double a = double.Parse(Console.ReadLine());
+    Console.WriteLine("enter b:");
+    double b = double.Parse(Console.ReadLine());
+    double result = 1 / (Math.Pow(a, 2) + a * b + 1) - 1 / (Math.Pow(b, 2) + a * b + 1);
+    Console.WriteLine("Result = {0}", result);
+}
+
+
+//Menu of tasks
+static void ShowMenu()
+{
+    string[] menuStrings =
+    {
+                "1. Task 1!",
+                "2. Task 2!",
+                "3. Task 3!",
+                "4. Task 4!",
+                "5. Task 5!",
+                "6. Task 6!"
+    };
+    int currentOprtion = 0;
+    ConsoleKeyInfo keyInfo;
+    int choice = 0;
+    while (true)
+    {
+        Console.Clear();
+        Console.WriteLine("Lab1!");
+        PrintMenu(menuStrings, currentOprtion);
+
+
+        keyInfo = Console.ReadKey();
+        if (keyInfo.Key == ConsoleKey.S || keyInfo.Key == ConsoleKey.DownArrow)
+        {
+            currentOprtion = currentOprtion + 1 <= menuStrings.Length - 1 ? currentOprtion + 1 : 0;
+        }
+        else if (keyInfo.Key == ConsoleKey.W || keyInfo.Key == ConsoleKey.UpArrow)
+        {
+            currentOprtion = currentOprtion - 1 >= 0 ? currentOprtion - 1 : menuStrings.Length - 1;
+        }
+        else if (keyInfo.Key == ConsoleKey.Enter)
+        {
+            choice = currentOprtion;
+            break;
+        }
+    }
+    switch (choice)
+    {
+        case 0:
+            Task1();
+            break;
+
+        case 1:
+            Task2();
+            break;
+        case 2:
+            Task3();
+            break;
+        case 3:
+            Task4();
+            break;
+        case 4:
+            Task5();
+            break;
+        case 5:
+            Task6();
+            break;
+        default:
+            break;
+    }
+}
+static void PrintMenu(string[] menuString, int choosenString)
+{
+    for (int i = 0; i < menuString.Length; i++)
+    {
+        if (i == choosenString)
+        {
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Gray;
+        }
+        Console.WriteLine(menuString[i]);
+        if (i == choosenString)
+        {
+            Console.ResetColor();
+        }
+    }
+}
+
+
+//Main
+while (true)
+{
+    Console.Clear();
+    ShowMenu();
+    Console.WriteLine("Press any key to continue...");
+    Console.ReadKey();
+}
 // continue ...
