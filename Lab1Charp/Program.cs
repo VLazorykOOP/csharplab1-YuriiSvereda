@@ -53,6 +53,40 @@ static void Task2()
     }
 
 }
-Console.WriteLine("Lab 1 !");
-Task2();
+
+//потрапити крапкою в трикутник ([0;0],[-23;0][-23;-23])
+static void Task3()
+{
+    Console.WriteLine("Task3!");
+    Console.WriteLine("Enter point (format: x;y):");
+    string input = Console.ReadLine();
+    string[] splited = input.Split(';');
+    float x, y;
+    if (splited.Length == 2 &&
+        float.TryParse(splited[0], out x) &&
+        float.TryParse(splited[1], out y))
+    {
+        if (y == 0 && x <= 0 && x >= -23 ||
+            x == -23 && y <= 0 && y >= -23 ||
+            x == y && x <= 0 && x >= -23)
+        {
+            Console.WriteLine("On the edge");
+        }
+        else if (x < y && y > -23 && y < 0)
+        {
+            Console.WriteLine("Yes");
+        }
+        else
+        {
+            Console.WriteLine("No");
+        }
+    }
+    else
+    {
+        Console.WriteLine("invalid format of input");
+    }
+}
+
+Console.WriteLine("Lab 1!");
+Task3();
 // continue ...
