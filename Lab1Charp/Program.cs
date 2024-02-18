@@ -139,8 +139,29 @@ static void Task4()
                 break;
         }
     }
+    else
+    {
+        Console.WriteLine("invalid input :(");
+    }
+}
+
+//5.14. Реалізувати функцію піднесення у квадрат різниці двох дійсних чисел
+static void Task5()
+{
+    Console.WriteLine("Task5!");
+    Console.WriteLine("enter first number:");
+    double firstNum = double.Parse(Console.ReadLine());
+    Console.WriteLine("enter second number:");
+    double secondNum = double.Parse(Console.ReadLine());
+    Console.WriteLine("result of function: {0}", SquaringDifferenceOfTwoRealNumbers(firstNum, secondNum));
+
+
+}
+static double SquaringDifferenceOfTwoRealNumbers(double firstNum, double secondNum)
+{
+    return Math.Pow(firstNum - secondNum, 2);
 }
 
 Console.WriteLine("Lab 1!");
-Task4();
+Task5();
 // continue ...
