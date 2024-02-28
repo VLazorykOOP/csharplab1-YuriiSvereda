@@ -100,45 +100,22 @@ static void Task4()
     {
         Console.WriteLine("The name of an animal that symbolizes a given year in the Eastern calendar:");
         int sequenceYearNumber = year % 12;
-        switch (sequenceYearNumber)
+        Console.WriteLine(sequenceYearNumber switch
         {
-            case 0:
-                Console.WriteLine("Monkey");
-                break;
-            case 1:
-                Console.WriteLine("Rooster");
-                break;
-            case 2:
-                Console.WriteLine("Dog");
-                break;
-            case 3:
-                Console.WriteLine("Pig");
-                break;
-            case 4:
-                Console.WriteLine("Rat");
-                break;
-            case 5:
-                Console.WriteLine("Ox");
-                break;
-            case 6:
-                Console.WriteLine("Tiger");
-                break;
-            case 7:
-                Console.WriteLine("Hare");
-                break;
-            case 8:
-                Console.WriteLine("Dragon");
-                break;
-            case 9:
-                Console.WriteLine("Snake");
-                break;
-            case 10:
-                Console.WriteLine("Horse");
-                break;
-            case 11:
-                Console.WriteLine("Ram");
-                break;
-        }
+            0 => "Monkey",
+            1 => "Rooster",
+            2 => "Dog",
+            3 => "Pig",
+            4 => "Rat",
+            5 => "Ox",
+            6 => "Tiger",
+            7 => "Hare",
+            8 => "Dragon",
+            9 => "Snake",
+            10 => "Horse",
+            11 => "Ram",
+
+        });
     }
     else
     {
